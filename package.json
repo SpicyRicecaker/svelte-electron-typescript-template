@@ -1,0 +1,75 @@
+{
+  "private": "true",
+  "workspaces": [
+    "pages"
+  ],
+  "name": "svelte-app",
+  "productName": "svelte-app",
+  "version": "0.0.0",
+  "description": "Template for electron, typescript, and svelte",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "concurrently \"yarn:start\" \"lerna run start\"",
+    "start": "tsc && electron-forge start",
+    "package": "lerna run build && tsc && electron-forge package",
+    "make": "lerna run build && tsc && electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts ."
+  },
+  "keywords": [],
+  "author": {
+    "name": "Your Name",
+    "email": "Your_Email@gmail.com"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "pages/public/assets/icon.ico",
+        "extraResource": "pages/public/assets/icon.ico"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "svelte-app",
+            "setupIcon": "pages/public/assets/icon.ico",
+            "iconUrl": "https://raw.githubusercontent.com/SpicyRicecaker/svelte-electron-typescript-template/master/pages/public/assets/icon.ico",
+            "skipUpdateIcon": true
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "concurrently": "^5.3.0",
+    "electron": "11.0.3",
+    "eslint": "^7.6.0",
+    "eslint-plugin-import": "^2.20.0",
+    "lerna": "^3.22.1",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}

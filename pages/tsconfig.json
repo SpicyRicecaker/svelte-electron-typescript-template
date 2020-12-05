@@ -1,0 +1,20 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+  "compilerOptions": {
+    // Living on the edge
+    "target": "esnext",
+    "module": "esnext",
+    // Sourcemap so we can actually debug
+    "sourceMap": true,
+    // Typescript checking
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    // // Custom things that we need for svelte???
+    // "typeRoots": ["node_modules/@types"], // "typeRoots": [] -> won't work
+    // "types": ["svelte", "node"]
+  }
+}
